@@ -13,7 +13,7 @@ export default function LoginForm({ isLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:5200/api/auth/login", formData);
+      const { data } = await axios.post("https://smartpay-backend.onrender.com", formData);
       localStorage.setItem("user", JSON.stringify(data.user));
       setUser(data.user);
       // alert("Login successful!");
