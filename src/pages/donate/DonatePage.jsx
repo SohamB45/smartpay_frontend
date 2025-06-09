@@ -211,12 +211,12 @@ const DonatePage = () => {
     const fetchDonationAndInitPayment = async () => {
       try {
         // 1. Fetch donation (optional)
-        const res = await fetch(`http://localhost:5200/api/donations/${id}`);
+        const res = await fetch(`https://smartpay-backend.onrender.com/api/donations/${id}`);
         const donationData = await res.json();
         setDonation(donationData);
 
         // 2. Create Razorpay order
-        const paymentRes = await fetch(`http://localhost:5200/api/donations/create-payment/${id}`, {
+        const paymentRes = await fetch(`https://smartpay-backend.onrender.com/api/donations/create-payment/${id}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ amount }),
@@ -238,7 +238,7 @@ const DonatePage = () => {
           theme: { color: "#3399cc" },
           handler: async function (response) {
             try {
-              const verifyRes = await fetch(`http://localhost:5200/api/donations/verify-payment`, {
+              const verifyRes = await fetch(`https://smartpay-backend.onrender.com/api/donations/verify-payment`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
