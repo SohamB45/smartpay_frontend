@@ -1022,8 +1022,8 @@ export default function AuthForm() {
     e.preventDefault();
     try {
       const endpoint = isLogin
-        ? "http://localhost:5200/api/auth/login"
-        : "http://localhost:5200/api/auth/register";
+        ? "https://smartpay-backend.onrender.com/api/auth/login"
+        : "https://smartpay-backend.onrender.com/api/auth/register";
 
       const dataToSend = isLogin
         ? { email: formData.email, password: formData.password }
