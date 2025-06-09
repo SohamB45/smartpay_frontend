@@ -109,60 +109,143 @@ const PaymentSuccess = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-8">
-      <div
-        ref={invoiceRef}
-        className="w-full max-w-2xl shadow-xl rounded-lg p-10 border "
-        style={{  backgroundColor: '#f1f5f9', color: '#1f2937' }}
-      >
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold" style={{ color: '#2563eb' }}>SkillGive</h1>
-          <p className="text-lg  mt-1">Donation Payment Receipt</p>
-        </div>
+    // <div className="min-h-screen flex flex-col items-center justify-center p-8">
+    //   <div
+    //     ref={invoiceRef}
+    //     className="w-full max-w-2xl shadow-xl rounded-lg p-10 border "
+    //     style={{  backgroundColor: '#f1f5f9', color: '#1f2937' }}
+    //   >
+    //     <div className="text-center mb-8">
+    //       <h1 className="text-4xl font-bold" style={{ color: '#2563eb' }}>SkillGive</h1>
+    //       <p className="text-lg  mt-1">Donation Payment Receipt</p>
+    //     </div>
 
-        <div className="border-t pt-6 text-base space-y-4">
-          <p><strong>Donor Name:</strong> {donorName}</p>
-          <p><strong>Email:</strong> {donorEmail}</p>
-          <p><strong>Payment ID (UTR):</strong> {paymentId}</p>
-          <p><strong>Date:</strong> {new Date().toLocaleDateString()}</p>
-        </div>
+    //     <div className="border-t pt-6 text-base space-y-4">
+    //       <p><strong>Donor Name:</strong> {donorName}</p>
+    //       <p><strong>Email:</strong> {donorEmail}</p>
+    //       <p><strong>Payment ID (UTR):</strong> {paymentId}</p>
+    //       <p><strong>Date:</strong> {new Date().toLocaleDateString()}</p>
+    //     </div>
 
-        <div className="mt-8 border-t pt-6">
-          <table className="w-full text-left ">
-            <thead>
-              <tr>
-                <th className="pb-2">Description</th>
-                <th className="pb-2 text-right">Amount (INR)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="py-1">Donation</td>
-                <td className="py-1 text-right">₹{amount}</td>
-              </tr>
-              <tr className="border-t">
-                <td className="pt-2 font-semibold">Total</td>
-                <td className="pt-2 font-semibold text-right">₹{amount}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    //     <div className="mt-8 border-t pt-6">
+    //       <table className="w-full text-left ">
+    //         <thead>
+    //           <tr>
+    //             <th className="pb-2">Description</th>
+    //             <th className="pb-2 text-right">Amount (INR)</th>
+    //           </tr>
+    //         </thead>
+    //         <tbody>
+    //           <tr>
+    //             <td className="py-1">Donation</td>
+    //             <td className="py-1 text-right">₹{amount}</td>
+    //           </tr>
+    //           <tr className="border-t">
+    //             <td className="pt-2 font-semibold">Total</td>
+    //             <td className="pt-2 font-semibold text-right">₹{amount}</td>
+    //           </tr>
+    //         </tbody>
+    //       </table>
+    //     </div>
 
-        <div className="mt-10 text-center text-sm">
-          This receipt confirms your payment was successfully processed.
-        </div>
-      </div>
+    //     <div className="mt-10 text-center text-sm">
+    //       This receipt confirms your payment was successfully processed.
+    //     </div>
+    //   </div>
 
-      <button
-        onClick={downloadPDF}
-        className="mt-6 bg-blue-600 text-white text-base font-medium px-6 py-2 rounded cursor-pointer"
-        style={{ backgroundColor: '#2563eb' }}
-      >
-        Download Invoice as PDF
-      </button>
+    //   <button
+    //     onClick={downloadPDF}
+    //     className="mt-6 bg-blue-600 text-white text-base font-medium px-6 py-2 rounded cursor-pointer"
+    //     style={{ backgroundColor: '#2563eb' }}
+    //   >
+    //     Download Invoice as PDF
+    //   </button>
 
-      <Link to="/" className="mt-4 text-blue-500 underline text-sm">Go to Home</Link>
+    //   <Link to="/" className="mt-4 text-blue-500 underline text-sm">Go to Home</Link>
+    // </div>
+    <div
+  className="min-h-screen flex flex-col items-center justify-center p-8"
+  style={{ backgroundColor: '#ffffff' }} // white bg for the page
+>
+  <div
+    ref={invoiceRef}
+    className="w-full max-w-2xl shadow-xl rounded-lg p-10 border"
+    style={{ backgroundColor: '#f1f5f9', color: '#1f2937' }} // slate-100 bg, gray-800 text
+  >
+    <div className="text-center mb-8">
+      <h1 className="text-4xl font-bold" style={{ color: '#2563eb' }}>
+        SkillGive
+      </h1>
+      <p className="text-lg mt-1" style={{ color: '#374151' }}>
+        Donation Payment Receipt
+      </p>
     </div>
+
+    <div className="border-t pt-6 text-base space-y-4" style={{ borderColor: '#d1d5db' }}>
+      <p>
+        <strong>Donor Name:</strong> {donorName}
+      </p>
+      <p>
+        <strong>Email:</strong> {donorEmail}
+      </p>
+      <p>
+        <strong>Payment ID (UTR):</strong> {paymentId}
+      </p>
+      <p>
+        <strong>Date:</strong> {new Date().toLocaleDateString()}
+      </p>
+    </div>
+
+    <div className="mt-8 border-t pt-6" style={{ borderColor: '#d1d5db' }}>
+      <table className="w-full text-left">
+        <thead>
+          <tr>
+            <th className="pb-2" style={{ color: '#4b5563' }}>
+              Description
+            </th>
+            <th className="pb-2 text-right" style={{ color: '#4b5563' }}>
+              Amount (INR)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="py-1" style={{ color: '#374151' }}>
+              Donation
+            </td>
+            <td className="py-1 text-right" style={{ color: '#374151' }}>
+              ₹{amount}
+            </td>
+          </tr>
+          <tr style={{ borderTop: '1px solid #d1d5db' }}>
+            <td className="pt-2 font-semibold" style={{ color: '#111827' }}>
+              Total
+            </td>
+            <td className="pt-2 font-semibold text-right" style={{ color: '#111827' }}>
+              ₹{amount}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div className="mt-10 text-center text-sm" style={{ color: '#6b7280' }}>
+      This receipt confirms your payment was successfully processed.
+    </div>
+  </div>
+
+  <button
+    onClick={downloadPDF}
+    className="mt-6 text-white text-base font-medium px-6 py-2 rounded cursor-pointer"
+    style={{ backgroundColor: '#2563eb' }}
+  >
+    Download Invoice as PDF
+  </button>
+
+  <Link to="/" className="mt-4 underline text-sm" style={{ color: '#3b82f6' }}>
+    Go to Home
+  </Link>
+</div>
   );
 };
 
