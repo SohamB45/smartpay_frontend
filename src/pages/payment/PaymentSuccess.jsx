@@ -112,8 +112,8 @@ const PaymentSuccess = () => {
     <div className="min-h-screen flex flex-col items-center justify-center p-8">
       <div
         ref={invoiceRef}
-        className="w-full max-w-2xl shadow-xl rounded-lg p-10 border bg-slate-100"
-        style={{ color: '#1f2937' }}
+        className="w-full max-w-2xl shadow-xl rounded-lg p-10 border "
+        style={{  backgroundColor: '#f1f5f9', color: '#1f2937' }}
       >
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold" style={{ color: '#2563eb' }}>SkillGive</h1>
