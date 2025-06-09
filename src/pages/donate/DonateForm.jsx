@@ -99,7 +99,7 @@ const DonateForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch('http://localhost:5200/api/donations', {
+    const res = await fetch('https://smartpay-backend.onrender.com/api/donations', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
