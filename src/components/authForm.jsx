@@ -1008,9 +1008,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../context/AuthContext";
+
 
 export default function AuthForm() {
   const navigate = useNavigate();
+ const { loginAsGuest } = useAuth();
+
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [isLogin, setIsLogin] = useState(true);
 
@@ -1036,6 +1040,11 @@ export default function AuthForm() {
       alert(err.response?.data?.message || "Something went wrong.");
     }
   };
+ 
+const handleGuestLogin = () => {
+  loginAsGuest();
+  navigate("/home");
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#e2e2e2] to-[#c9d6ff] font-[Montserrat]">
@@ -1084,9 +1093,13 @@ export default function AuthForm() {
               required
               className="bg-gray-100 my-2 p-2 w-full text-sm rounded-md outline-none"
             />
-            <a href="#" className="text-xs text-gray-600 my-2">
-              Forgot Password?
-            </a>
+            <button
+  onClick={handleGuestLogin}
+  type="button"
+  className="text-sm text-blue-700 mt-4 underline hover:text-blue-900"
+>
+  Continue as Guest
+</button>
             <button
               type="submit"
               className="bg-[#512da8] text-white text-xs font-semibold uppercase py-2 px-10 rounded-md mt-3 cursor-pointer"
