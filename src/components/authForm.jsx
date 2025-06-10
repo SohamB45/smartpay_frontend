@@ -1096,7 +1096,7 @@ const handleGuestLogin = () => {
             <button
   onClick={handleGuestLogin}
   type="button"
-  className="text-sm text-blue-700 mt-4 underline hover:text-blue-900"
+  className="text-sm text-blue-700 mt-4 underline hover:text-blue-900 cursor-pointer"
 >
   Continue as Guest
 </button>
