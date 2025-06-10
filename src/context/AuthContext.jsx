@@ -5,6 +5,17 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
+  const loginAsGuest = () => {
+  const guestUser = {
+    name: 'Guest',
+    email: 'guest@skillgive.com',
+    isGuest: true,
+  };
+  setUser(guestUser);
+  localStorage.setItem('user', JSON.stringify(guestUser));
+};
+
+
   // Load user from localStorage on first render
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -21,7 +32,7 @@ export const AuthProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, loginAsGuest }}>
       {children}
     </AuthContext.Provider>
   );
