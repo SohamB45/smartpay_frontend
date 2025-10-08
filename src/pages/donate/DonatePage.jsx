@@ -240,7 +240,7 @@ export default function DonatePage() {
         setShowBackConfirm(false);
         
         // Optional: Update status as 'Failed' on your backend
-        fetch(`http://localhost:5200/api/donations/${id}/fail`, { method: "PUT" }).catch(console.error);
+        fetch(`https://smartpay-backend.onrender.com/api/donations/${id}/fail`, { method: "PUT" }).catch(console.error);
         
         // Navigate back after allowing navigation
         setTimeout(() => {
