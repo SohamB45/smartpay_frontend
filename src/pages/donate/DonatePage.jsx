@@ -264,12 +264,12 @@ export default function DonatePage() {
             await new Promise(resolve => script.onload = resolve);
             try {
                 // 1. Fetch donation (optional)
-                const res = await fetch(`http://localhost:5200/api/donations/${id}`);
+                const res = await fetch(`https://smartpay-backend.onrender.com/api/donations/${id}`);
                 const donationData = await res.json();
                 setDonation(donationData);
 
-                // 2. Create Razorpay order
-                const paymentRes = await fetch(`http://localhost:5200/api/donations/create-payment/${id}`, {
+                // 2. Create Razorpay order //CHNAGES IN FETCH LINK
+                const paymentRes = await fetch(`https://smartpay-backend.onrender.com/api/donations/create-payment/${id}`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                 });
@@ -291,7 +291,7 @@ export default function DonatePage() {
                     handler: async function (response) {
                         try {
                             setPaymentCompleted(true); // Allow navigation after successful payment
-                            const verifyRes = await fetch(`http://localhost:5200/api/donations/verify-payment`, {
+                            const verifyRes = await fetch(`https://smartpay-backend.onrender.com/api/donations/verify-payment`, {
                                 method: "POST",
                                 headers: { "Content-Type": "application/json" },
                                 body: JSON.stringify({
@@ -351,7 +351,7 @@ export default function DonatePage() {
     const handleConfirmCancel = () => {
         setPaymentCompleted(true); // Allow navigation
         // Optional: Update status as 'Failed' on your backend
-        fetch(`http://localhost:5200/api/donations/${id}/fail`, { method: "PUT" }).catch(console.error);
+        fetch(`https://smartpay-backend.onrender.com/api/donations/${id}/fail`, { method: "PUT" }).catch(console.error);
         setShowCancelPrompt(false);
         navigate("/home");
     };
